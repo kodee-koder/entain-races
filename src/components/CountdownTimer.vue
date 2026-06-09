@@ -1,6 +1,7 @@
 <template>
   <div class="countdown-timer">
     <!-- Countdown timer content -->
+     <h2>Countdown Timer</h2>
   </div>
 </template>
 

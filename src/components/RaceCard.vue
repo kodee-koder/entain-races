@@ -1,6 +1,7 @@
 <template>
   <div class="race-card">
     <!-- Race card content -->
+      <h2>Race Card</h2>
   </div>
 </template>
 

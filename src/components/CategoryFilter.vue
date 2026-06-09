@@ -1,6 +1,7 @@
 <template>
   <div class="category-filter">
     <!-- Category filter content -->
+    <h2>Category Filter</h2>
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
   <div class="race-list">
     <!-- Race list content -->
+     <h2>Race List</h2>
   </div>
 </template>
 
