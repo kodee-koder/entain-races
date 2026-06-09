@@ -30,8 +30,7 @@ export const useRacesStore = defineStore("races", {
 
   actions: {
     async loadRaces() {
-      const data = await fetchNextRaces();
-      this.races = Object.values(data);
+      this.races = await fetchNextRaces();
     },
 
     toggleCategory(id: string) {

@@ -1,13 +1,21 @@
 import axios from "axios";
+import type { Race } from "../types/race";
 
 const BASE_URL = "https://api.neds.com.au/rest/v1/racing/";
 
-export async function fetchNextRaces() {
-  const res = await axios.get(BASE_URL, {
+type NextRacesResponse = {
+  data?: {
+    race_summaries?: Record<string, Race>;
+  };
+};
+
+export async function fetchNextRaces(): Promise<Race[]> {
+  const res = await axios.get<NextRacesResponse>(BASE_URL, {
     params: {
       method: "nextraces",
+      count: 50,
     },
   });
 
-  return res.data.data.race_summaries;
+  return Object.values(res.data?.data?.race_summaries ?? {});
 }
