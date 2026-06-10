@@ -2,7 +2,6 @@
 
 This file documents prompts where AI assistance was used and summarizes resulting changes.
 
-## 2026-06-10
 
 ### Entry 1
 Prompt: Create a baseline repository .gitignore for a Vue + TypeScript project.
