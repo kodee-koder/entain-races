@@ -1,3 +1,6 @@
+/*
+ * AI Assistance: This file was developed with AI support and manually reviewed/edited.
+ */
 import { defineStore } from "pinia";
 import { fetchNextRaces } from "../services/nedsApi";
 import type { Race } from "../types/race";
@@ -21,9 +24,11 @@ export const useRacesStore = defineStore("races", {
         .filter((r) => state.selectedCategories.includes(r.category_id))
         .filter((r) => {
           const start = r.advertised_start.seconds * 1000;
+          // Keep races visible until 60s after advertised start.
           return start + 60_000 > state.now;
         })
         .sort((a, b) => a.advertised_start.seconds - b.advertised_start.seconds)
+        // Task requirement: always surface only the next 5 races.
         .slice(0, 5);
     },
   },

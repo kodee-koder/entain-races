@@ -1,11 +1,15 @@
+<!-- AI Assistance: This file was developed with AI support and manually reviewed/edited. -->
 <template>
-  <div class="grid gap-3">
+  <section class="race-list" aria-live="polite">
     <RaceCard
       v-for="race in store.filteredRaces"
       :key="race.race_id"
       :race="race"
     />
-  </div>
+    <p v-if="store.filteredRaces.length === 0" class="race-list__empty">
+      No races match the selected categories right now.
+    </p>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -20,10 +24,12 @@ let refreshInterval: ReturnType<typeof setInterval> | undefined
 onMounted(async () => {
   await store.loadRaces()
 
+  // Update countdown once per second.
   tickInterval = setInterval(() => {
     store.tick()
   }, 1000)
 
+  // Refresh upstream races periodically so filtered results stay populated.
   refreshInterval = setInterval(() => {
     void store.loadRaces()
   }, 15_000)

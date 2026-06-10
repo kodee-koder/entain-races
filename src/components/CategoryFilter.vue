@@ -1,17 +1,18 @@
+<!-- AI Assistance: This file was developed with AI support and manually reviewed/edited. -->
 <template>
-  <div class="flex gap-2 mb-4">
+  <section class="category-filter" aria-label="Race categories">
     <button
       v-for="c in categories"
       :key="c.id"
       @click="store.toggleCategory(c.id)"
-      class="px-3 py-1 rounded-full border"
+      class="category-filter__button"
       :class="store.selectedCategories.includes(c.id)
-        ? 'bg-blue-500 text-white'
-        : 'bg-white'"
+        ? 'category-filter__button--active'
+        : 'category-filter__button--inactive'"
     >
       {{ c.label }}
     </button>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -25,8 +26,3 @@ const categories = [
   { id: '4a2788f8-e825-4d36-9894-efd4baf1cfae', label: 'Horse' },
 ]
 </script>
-<style scoped>
-.category-filter {
-  /* Styles */
-}
-</style>

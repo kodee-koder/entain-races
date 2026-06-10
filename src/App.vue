@@ -1,10 +1,15 @@
 <template>
-  <div class="min-h-screen bg-gray-50 p-6">
-    <h1 class="text-2xl font-bold mb-4">Next To Go Races</h1>
+  <div class="app-shell">
+    <main class="app-main">
+      <p class="brand-kicker">Entain Australia &amp; New Zealand</p>
+      <h1 class="app-title">Next To Go Races</h1>
+      <p class="app-subtitle">
+        Live view of the next five races, sorted by start time with category filters.
+      </p>
 
-    <CategoryFilter />
-
-    <RaceList />
+      <CategoryFilter />
+      <RaceList />
+    </main>
   </div>
 </template>
 
